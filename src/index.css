@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(210, 36%, 96%);
+}
+
+
+.coin-list-image {
+  width: 50px;
+}
+
+
+.delete-icon {
+  display: none;
+  position: absolute;
+  right: 5px;
+}
+
+.list-element:hover .delete-icon {
+  display: inline;
+}
+
+.graph-div {
+  min-height: 200px;
+}
