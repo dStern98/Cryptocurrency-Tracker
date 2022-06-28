@@ -6,6 +6,7 @@ const CoinMetrics = ({coin, currency}) => {
 
     useEffect(()=> {
         const fetchCoinMetrics = async () => {
+            console.log(coin)
             try {
                 const response = await axiosInstance.get("/coins/markets", {
                     params: {
@@ -28,13 +29,13 @@ const CoinMetrics = ({coin, currency}) => {
     const prettifyNumbers = (metric, metric_name = null)=> {
         if (metric) {
             try {
-                if (metric_name === "price_change_24h") {
-                    return metric.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                if (["current_price", "high_24h", "low_24h", "price_change_24h"].find((name) => name === metric_name)) {
+                    return metric.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
-                else if (metric_name === "price_change_percentage_24h") {
+                else if (["price_change_percentage_24h"].find((name) => name === metric_name)) {
                     return metric.toFixed(2);
                 }
-                return metric.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                return metric.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             catch (error) {
                 return "-";
@@ -52,34 +53,34 @@ const CoinMetrics = ({coin, currency}) => {
             )
         }
         return (
-            <div className="d-flex flex-row justify-content-around align-items-center mt-2 mb-5
+            <div className="d-flex flex-row justify-content-around align-items-center mt-2 mb-5 pb-1
                             shadow-sm bg-white">
                 <div className="d-flex flex-column justify-content-around align-items-center">
                     <div className="d-flex flex-column justify-content-between align-items-center">
                         <span className="mx-1 my-1 fs-6">Current Price</span>
-                        <span className="mx-1 my-1 fs-3">{currency.symbol}{prettifyNumbers(coinData.current_price)}</span>
+                        <span className="mx-1 my-1 fs-3">{currency.symbol}{prettifyNumbers(coinData.current_price,"current_price")}</span>
                     </div>
                     <div className="d-flex flex-column justify-content-between align-items-center">
                         <span className="mx-1 my-1 fs-6">High 24h</span>
-                        <span className="mx-1 my-1 fs-3">{currency.symbol}{prettifyNumbers(coinData.high_24h)}</span>
+                        <span className="mx-1 my-1 fs-3">{currency.symbol}{prettifyNumbers(coinData.high_24h, "high_24h")}</span>
                     </div>
                     <div className="d-flex flex-column justify-content-between align-items-center">
                         <span className="mx-1 my-1 fs-6">Low 24h</span>
-                        <span className="mx-1 my-1 fs-3">{currency.symbol}{prettifyNumbers(coinData.low_24h)}</span>
+                        <span className="mx-1 my-1 fs-3">{currency.symbol}{prettifyNumbers(coinData.low_24h, "low_24h")}</span>
                     </div>
                 </div>
                 <div className="d-flex flex-column justify-content-around align-items-center">
                     <div className="d-flex flex-column justify-content-between align-items-center">
                         <span className="mx-1 my-1 fs-6">Market Cap</span>
-                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.market_cap)}</span>
+                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.market_cap, "market_cap")}</span>
                     </div>
                     <div className="d-flex flex-column justify-content-between align-items-center">
                         <span className="mx-1 my-1 fs-6">Market Cap Rank</span>
-                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.market_cap_rank)}</span>
+                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.market_cap_rank, "market_cap_rank")}</span>
                     </div>
                     <div className="d-flex flex-column justify-content-between align-items-center">
                         <span className="mx-1 my-1 fs-6">Total Volume</span>
-                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.total_volume)}</span>
+                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.total_volume, "total_volume")}</span>
                     </div>
                 </div>
                 <div className="d-flex flex-column justify-content-around align-items-center">
@@ -99,7 +100,7 @@ const CoinMetrics = ({coin, currency}) => {
                     </div>
                     <div className="d-flex flex-column justify-content-between align-items-center">
                         <span className="mx-1 my-1 fs-6">Total Supply</span>
-                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.total_supply)}</span>
+                        <span className="mx-1 my-1 fs-3">{prettifyNumbers(coinData.total_supply, "total_supply")}</span>
                     </div>
                 </div>
         </div>

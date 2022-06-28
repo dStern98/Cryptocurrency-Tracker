@@ -74,7 +74,7 @@ const CoinPlot = ({coin, currency}) => {
         }
     }
     return (
-        <div className="mt-3 d-flex flex-column shadow-sm bg-white">
+        <div className="d-flex flex-column shadow-sm bg-white pt-1">
             <div className="d-flex flex-row justify-content-center my-1">
                 <button className={`btn mx-1 ${chartDays===1? "active btn-dark": ""}`} onClick={()=> setChartDays(1)}>1D</button>
                 <button className={`btn mx-1 ${chartDays===7? "active btn-dark": ""}`} onClick={()=> setChartDays(7)}>1W</button>

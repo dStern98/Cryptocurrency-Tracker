@@ -6,7 +6,7 @@ export const CoinListContext = createContext();
 export const CoinListContextProvider = (props) => {
 
     const [availableCoins, setAvailableCoins] = useState([]);
-    const [trackList, setTrackList] = useState(["bitcoin", "ethereum","cardano"]);
+    const [trackList, setTrackList] = useState(localStorage.getItem("watchList").split(",") || ["bitcoin", "ethereum","cardano"]);
     const [currency, setCurrency] = useState({vs_currency: "usd", symbol: "$"});
 
     //Logic to delete and add new coins to the tracked list
@@ -36,6 +36,10 @@ export const CoinListContextProvider = (props) => {
         }
         fetchAllCoins();
     }, [])
+
+    useEffect(()=> {
+        localStorage.setItem("watchList", trackList.join(","));
+    }, [trackList])
 
     return (
         <CoinListContext.Provider 

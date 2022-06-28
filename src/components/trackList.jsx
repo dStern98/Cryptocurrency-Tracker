@@ -33,7 +33,7 @@ const TrackList = () => {
     }, [trackList, currency])
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-4">
             <ul className="list-group">
                 {trackedCoinData.map((coin_data) => {
                     return (
