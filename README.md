@@ -1,37 +1,12 @@
+# App Details
+
 This is a Cryptocurrency tracking app designed to mirror the functionality of the iphone Stocks app.
-A watchlist contains basic information about tracked stacks. Currencies can be added to the watchlist via the search bar 
-or removed. If clicked, the user is routed to a page with price plotting ability for various time-intervals, as well as additional
+A watchlist contains basic information about tracked stacks. Currencies can be added to the watchlist via the search bar
+or removed. The watchlist is stored in localStorage so that it is preserved across site visits. If clicked, the user is routed to a page with price plotting ability for various time-intervals, as well as additional
 coin metrics. Styling is mostly done using boostrap, plotting uses plotly.js. Routing comes from react-router.
 
+The site is deployed at this [https://dstern-react-cryptotracker.netlify.app/](https://dstern-react-cryptotracker.netlify.app/)
 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
