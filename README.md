@@ -5,7 +5,7 @@ A watchlist contains basic information about tracked stocks. Currencies can be a
 or removed. The watchlist is stored in localStorage so that it is preserved across site visits. If clicked, the user is routed to a page with price plotting ability for various time-intervals, as well as additional
 coin metrics. Styling is mostly done using bootstrap, plotting uses plotly.js. Routing comes from react-router.
 
-The site is deployed at this [https://dstern-react-cryptotracker.netlify.app/](https://dstern-react-cryptotracker.netlify.app/)
+The site is deployed at [https://dstern-react-cryptotracker.netlify.app/](https://dstern-react-cryptotracker.netlify.app/)
 
 # Getting Started with Create React App
 
