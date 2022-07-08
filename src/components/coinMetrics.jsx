@@ -95,6 +95,7 @@ const CoinMetrics = ({coin, currency}) => {
                         <span className="mx-1 my-1 fs-6">Price Change 24h %</span>
                         <span className={`mx-1 my-1 fs-3 
                         ${coinData.price_change_percentage_24h>0? "text-success": "text-danger" }`}>
+                            {coinData.price_change_percentage_24h>0? "+": ""}
                             {prettifyNumbers(coinData.price_change_percentage_24h, "price_change_percentage_24h")}%
                         </span>
                     </div>
