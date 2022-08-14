@@ -62,7 +62,7 @@ const CoinPlot = ({coin, currency}) => {
         ]}
         layout={{autosize: true, title: `${coin}`,
         yaxis: {
-            title: `${currency.symbol}`
+            title: `${currency?.symbol}`
           }}}
         useResizeHandler={true}
         style={{width: "100%", height: "100%"}}

@@ -46,6 +46,7 @@ export const CoinListContextProvider = (props) => {
         fetchAllCoins();
     }, [])
 
+    
     useEffect(()=> {
         localStorage.setItem("watchList", trackList.join(","));
     }, [trackList])
