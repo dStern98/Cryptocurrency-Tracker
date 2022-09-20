@@ -14,8 +14,6 @@ const CoinMetrics = ({coin, currency}) => {
                     }
                 })
                 setCoinData(response.data[0]);
-
-
             }
             catch (error) {
                 console.log(error);

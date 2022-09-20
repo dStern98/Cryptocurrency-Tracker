@@ -24,7 +24,9 @@ const ListElement = ({coin_data, deleteCoin, currency}) => {
                 onClick={(e)=> {
                     e.preventDefault();
                     deleteCoin(coin_data.id);
-                } }><BsFillXCircleFill size={19}/></span>
+                } }>
+                    <BsFillXCircleFill size={19}/>
+                </span>
             </span>
         </li>
         </Link>

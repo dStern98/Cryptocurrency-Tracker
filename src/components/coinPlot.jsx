@@ -73,18 +73,31 @@ const CoinPlot = ({coin, currency}) => {
             return <p>Loading...</p>
         }
     }
+
+    // To reduce verbosity, changed to using an array and mapping over
+    const chart_buttons = [
+        {days: 1, string_repr: "1D"},
+        {days: 7, string_repr: "1W"},
+        {days: 31, string_repr: "1M"},
+        {days: 93, string_repr: "3M"},
+        {days: 186, string_repr: "6M"},
+        {days: 365, string_repr: "1Y"},
+        {days: 730, string_repr: "2Y"},
+        {days: 1095, string_repr: "5Y"},
+        {days: 2190, string_repr: "10Y"}
+    ]
+
     return (
         <div className="d-flex flex-column shadow-sm bg-white pt-1">
             <div className="d-flex flex-row justify-content-center my-1">
-                <button className={`btn mx-1 ${chartDays===1? "active btn-dark": ""}`} onClick={()=> setChartDays(1)}>1D</button>
-                <button className={`btn mx-1 ${chartDays===7? "active btn-dark": ""}`} onClick={()=> setChartDays(7)}>1W</button>
-                <button className={`btn mx-1 ${chartDays===31? "active btn-dark": ""}`} onClick={()=> setChartDays(31)}>1M</button>
-                <button className={`btn mx-1 ${chartDays===93? "active btn-dark": ""}`} onClick={()=> setChartDays(93)}>3M</button>
-                <button className={`btn mx-1 ${chartDays===186? "active btn-dark": ""}`} onClick={()=> setChartDays(186)}>6M</button>
-                <button className={`btn mx-1 ${chartDays===365? "active btn-dark": ""}`} onClick={()=> setChartDays(365)}>1Y</button>
-                <button className={`btn mx-1 ${chartDays===730? "active btn-dark": ""}`} onClick={()=> setChartDays(730)}>2Y</button>
-                <button className={`btn mx-1 ${chartDays===1095? "active btn-dark": ""}`} onClick={()=> setChartDays(1095)}>5Y</button>
-                <button className={`btn mx-1 ${chartDays===2190? "active btn-dark": ""}`} onClick={()=> setChartDays(2190)}>10Y</button>
+                {
+                    chart_buttons.map(({days, string_repr}) => {
+                        return (
+                            <button key={days} className={`btn mx-1 ${chartDays===days? "active btn-dark": ""}`}
+                             onClick={()=> setChartDays(days)}>{string_repr}</button>
+                        )
+                    })
+                }
             </div>
             <div className="graph-div">
                 {renderChart()}

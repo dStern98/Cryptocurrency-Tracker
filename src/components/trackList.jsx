@@ -34,7 +34,7 @@ const TrackList = () => {
 
     return (
         <div className="container mt-4">
-            <ul className="list-group">
+             <ul className="list-group">
                 {trackedCoinData.map((coin_data) => {
                     return (
                         <ListElement key={coin_data.id} coin_data={coin_data}
