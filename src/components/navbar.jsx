@@ -8,7 +8,6 @@ const Navbar = () => {
     const {currency, setCurrency, availableCoins, addCoin} = useContext(CoinListContext);
     const [searchValue, setSearchValue] = useState("");
     const location = useLocation();
-    console.log(location.pathname);
 
 
     const handleListItemClick = (vs_currency, symbol) => {
@@ -29,20 +28,20 @@ const Navbar = () => {
         if (location.pathname === "/") {
             return (
                 <div>
-                <form onSubmit={handleSearchSubmit}>
-                        <input className="form-control" list="datalistOptions" id="coinSearch" 
-                        onChange={(e)=> setSearchValue(e.target.value)} value={searchValue}
-                        placeholder="Add to Watchlist"/>
-                        <datalist id="datalistOptions">
-                            {availableCoins.map((coin_details)=> {
-                                const {id, name} = coin_details;
-                                return (
-                                    <option key={id} value={name}/>
-                                )
-                            })}
-                        </datalist>
-                </form>
-            </div>
+                    <form onSubmit={handleSearchSubmit}>
+                            <input className="form-control" list="datalistOptions" id="coinSearch" 
+                            onChange={(e)=> setSearchValue(e.target.value)} value={searchValue}
+                            placeholder="Add to Watchlist"/>
+                            <datalist id="datalistOptions">
+                                {availableCoins.map((coin_details)=> {
+                                    const {id, name} = coin_details;
+                                    return (
+                                        <option key={id} value={name}/>
+                                    )
+                                })}
+                            </datalist>
+                    </form>
+                </div>
             )
         }
         return (
