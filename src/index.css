@@ -4,13 +4,25 @@
   box-sizing: border-box;
 }
 
+.coin-card {
+  width: 375px;
+  height: 200px;
+  transition: 0.1s ease-in;
+}
+
+.coin-card:hover {
+  border: solid orange 2px;
+}
+
+
 body {
   background-color: hsl(210, 36%, 96%);
 }
 
 
 .coin-list-image {
-  width: 50px;
+  width: 75px;
+  height: 75px;
 }
 
 
@@ -18,6 +30,7 @@ body {
   display: none;
   position: absolute;
   right: 5px;
+  top: 5px;
 }
 
 .list-element:hover .delete-icon {
