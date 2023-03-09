@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillXCircleFill } from "react-icons/bs";
+import { AiOutlineRise, AiOutlineFall } from "react-icons/ai";
 
 const ListElement = ({ coin_data, deleteCoin, currency }) => {
   const { symbol, id, image, price_change_percentage_24h, current_price } =
@@ -39,6 +40,11 @@ const ListElement = ({ coin_data, deleteCoin, currency }) => {
             >
               {price_change_percentage_24h > 0 ? "+" : ""}
               {price_change_percentage_24h?.toFixed(2)}%
+              {price_change_percentage_24h > 0 ? (
+                <AiOutlineRise />
+              ) : (
+                <AiOutlineFall />
+              )}
             </span>
             <span
               className="text-danger mx-2 delete-icon"

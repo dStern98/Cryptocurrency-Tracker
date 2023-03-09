@@ -5,7 +5,7 @@
 }
 
 .coin-card {
-  width: 375px;
+  width: 400px;
   height: 200px;
   transition: 0.1s ease-in;
 }
@@ -39,4 +39,8 @@ body {
 
 .graph-div {
   min-height: 200px;
+}
+
+a {
+  color: inherit;
 }

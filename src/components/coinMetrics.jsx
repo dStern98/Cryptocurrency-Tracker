@@ -86,6 +86,7 @@ const CoinMetrics = ({ coin, currency }) => {
           <div className="d-flex flex-column justify-content-between align-items-center">
             <span className="mx-1 my-1 fs-6">Market Cap</span>
             <span className="mx-1 my-1 fs-3">
+              {currency?.symbol}
               {prettifyNumbers(coinData?.market_cap, "market_cap")}
             </span>
           </div>
@@ -113,7 +114,7 @@ const CoinMetrics = ({ coin, currency }) => {
                             : "text-danger"
                         }`}
             >
-              {currency.symbol}
+              {currency?.symbol}
               {prettifyNumbers(coinData?.price_change_24h, "price_change_24h")}
             </span>
           </div>

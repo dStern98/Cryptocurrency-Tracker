@@ -26,7 +26,7 @@ const Navbar = () => {
     if (location.pathname === "/") {
       return (
         <div>
-          <form onSubmit={handleSearchSubmit}>
+          <form onSubmit={handleSearchSubmit} role="search">
             <input
               className="form-control"
               list="datalistOptions"

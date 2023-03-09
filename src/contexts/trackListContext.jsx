@@ -14,7 +14,14 @@ export const CoinListContextProvider = (props) => {
   };
   const [availableCoins, setAvailableCoins] = useState([]);
   const [trackList, setTrackList] = useState(
-    getLocalStorage() || ["bitcoin", "ethereum", "cardano", "tether"]
+    getLocalStorage() || [
+      "bitcoin",
+      "ethereum",
+      "cardano",
+      "tether",
+      "litecoin",
+      "ripple",
+    ]
   );
   const [currency, setCurrency] = useState({ vs_currency: "usd", symbol: "$" });
 
